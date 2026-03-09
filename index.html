@@ -2,49 +2,50 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Mis 15 Años</title>
-
 <style>
 
 body{
-font-family: Arial;
+font-family: Arial, sans-serif;
 text-align:center;
-background: linear-gradient(#ff9ad5,#ffcce6);
+background: linear-gradient(#0b3d91,#5fa8ff);
 color:white;
-margin:0;
-padding:0;
+padding:40px;
 }
 
-.container{
+.card{
+background:rgba(255,255,255,0.1);
 padding:30px;
+border-radius:20px;
+max-width:500px;
+margin:auto;
 }
 
 h1{
 font-size:40px;
 }
 
-.contador{
+.flor{
 font-size:30px;
-margin:20px;
 }
 
-.boton{
-display:inline-block;
-padding:15px 25px;
+#contador{
+font-size:30px;
+margin:20px 0;
+}
+
+button{
 background:white;
-color:#ff1493;
-text-decoration:none;
-font-weight:bold;
+color:#0b3d91;
+border:none;
+padding:15px 25px;
 border-radius:10px;
-margin-top:20px;
+font-size:18px;
+cursor:pointer;
 }
 
-img{
-width:250px;
-border-radius:20px;
-margin-top:20px;
+button:hover{
+background:#e0e0e0;
 }
 
 </style>
@@ -52,49 +53,43 @@ margin-top:20px;
 
 <body>
 
-<div class="container">
+<div class="card">
+
+<div class="flor">🌸 🌼 🌸</div>
 
 <h1>Mis 15 Años</h1>
 
-<h2>Estás invitado</h2>
+<p>Te invito a celebrar una noche mágica</p>
 
-<https://www.google.com/imgres?q=fotos&imgurl=https%3A%2F%2Fdus6dayednven.cloudfront.net%2Fapp%2Fuploads%2F2022%2F05%2F1-DSC00855-Editar_baja.jpg&imgrefurl=https%3A%2F%2Fwww.sony.co.cr%2Falphauniverse%2Fstories%2F7-consejos-para-elevar-las-fotos-de-tus-mascotas&docid=gE3p2PU-lHUJ3M&tbnid=FVSDfdp_V9IahM&vet=12ahUKEwjYxrOt5ZKTAxWbHLkGHf2cHFoQnPAOegQIGBAB..i&w=1182&h=1773&hcb=2&ved=2ahUKEwjYxrOt5ZKTAxWbHLkGHf2cHFoQnPAOegQIGBAB>
+<h2>Sábado 20 de Diciembre 2026</h2>
 
-<div class="contador" id="contador"></div>
+<p>Faltan:</p>
 
-<a class="boton" href="https://maps.app.goo.gl/eELx4am86siJgjja8" target="_blank">
-Ver ubicación de la fiesta
-</a>
+<div id="contador"></div>
+
+<button onclick="window.open('https://maps.google.com')">
+Ver ubicación
+</button>
 
 </div>
 
 <script>
 
-var fechaFiesta = new Date("May 19, 2026 21:00:00").getTime();
+var fechaFiesta = new Date("Dec 20, 2026 21:00:00").getTime();
 
-var x = setInterval(function(){
+var x = setInterval(function() {
 
 var ahora = new Date().getTime();
-
 var distancia = fechaFiesta - ahora;
 
 var dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-var horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-var minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-var segundos = Math.floor((distancia % (1000 * 60)) / 1000);
 
-document.getElementById("contador").innerHTML =
-"Faltan " + dias + " días " + horas + "h "
-+ minutos + "m " + segundos + "s";
+document.getElementById("contador").innerHTML = dias + " días";
 
-if(distancia < 0){
-clearInterval(x);
-document.getElementById("contador").innerHTML = "¡La fiesta comenzó!";
-}
-
-},1000);
+}, 1000);
 
 </script>
 
 </body>
 </html>
+
